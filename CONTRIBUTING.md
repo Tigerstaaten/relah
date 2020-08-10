@@ -2,4 +2,4 @@
 
 ## Code
 
-* The code should foll
+* The code should follow Watson Developer
