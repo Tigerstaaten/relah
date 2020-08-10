@@ -2,4 +2,5 @@
 
 ## Code
 
-* The code should follow Watson Developer Cloud [coding guidances](https://github.com/watson-developer-cloud/api
+* The code should follow Watson Developer Cloud [coding guidances](https://github.com/watson-developer-cloud/api-guidelines)
+* 
