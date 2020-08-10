@@ -2,4 +2,4 @@
 
 ## Code
 
-* The code should follow Watson Developer
+* The code should follow Watson Developer Cloud [coding guidances](https:
