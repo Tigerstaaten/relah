@@ -10,4 +10,4 @@
 ## Issues
 
 If you encounter an issue with using the labs here, you are welcome to submit
-a [bug report](https://gi
+a [bug report](https://github.com/node-red-co
