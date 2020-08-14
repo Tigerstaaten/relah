@@ -10,4 +10,4 @@
 ## Issues
 
 If you encounter an issue with using the labs here, you are welcome to submit
-a [bug r
+a [bug report](https://gi
