@@ -10,4 +10,5 @@
 ## Issues
 
 If you encounter an issue with using the labs here, you are welcome to submit
-a [bug report](https://github.com/node-red-contrib-utils/node-red-contrib-watson-machine-learning
+a [bug report](https://github.com/node-red-contrib-utils/node-red-contrib-watson-machine-learning/issues).
+Before th
