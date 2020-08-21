@@ -11,4 +11,4 @@
 
 If you encounter an issue with using the labs here, you are welcome to submit
 a [bug report](https://github.com/node-red-contrib-utils/node-red-contrib-watson-machine-learning/issues).
-Before that, please search for similar issues. It's p
+Before that, please search for similar issues. It's possible somebody has alr
