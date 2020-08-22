@@ -15,3 +15,4 @@ Before that, please search for similar issues. It's possible somebody has alread
 
 ## Pull Requests
 
+If you want to cont
