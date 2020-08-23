@@ -15,4 +15,4 @@ Before that, please search for similar issues. It's possible somebody has alread
 
 ## Pull Requests
 
-If you want to contribute to the reposit
+If you want to contribute to the repository, follow these ste
