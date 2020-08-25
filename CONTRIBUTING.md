@@ -20,4 +20,4 @@ If you want to contribute to the repository, follow these steps:
 1. Fork the repo.
 2. Develop code changes.
 5. Commit your changes.
-6. Push to you
+6. Push to your fork and submit a pul
