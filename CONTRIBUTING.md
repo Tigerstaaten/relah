@@ -24,4 +24,4 @@ If you want to contribute to the repository, follow these steps:
 
 ### Getting started
 
-* I
+* Install [Node-RED]
