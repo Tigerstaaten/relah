@@ -25,4 +25,4 @@ If you want to contribute to the repository, follow these steps:
 ### Getting started
 
 * Install [Node-RED](http://nodered.org/)
-* F
+* Fork [this re
