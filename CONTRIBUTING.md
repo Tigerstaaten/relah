@@ -25,4 +25,5 @@ If you want to contribute to the repository, follow these steps:
 ### Getting started
 
 * Install [Node-RED](http://nodered.org/)
-* Fork [this repo](https://github.com/node-red-contrib-utils/node-red-contrib-wats
+* Fork [this repo](https://github.com/node-red-contrib-utils/node-red-contrib-watson-machine-learning)
+* Cl
