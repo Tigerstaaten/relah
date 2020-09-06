@@ -28,4 +28,4 @@ If you want to contribute to the repository, follow these steps:
 * Fork [this repo](https://github.com/node-red-contrib-utils/node-red-contrib-watson-machine-learning)
 * Clone the project
 * Create an npm link to your forked project
-  * Within the 
+  * Within the cloned directory, run `n
