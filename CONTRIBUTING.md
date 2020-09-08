@@ -29,4 +29,4 @@ If you want to contribute to the repository, follow these steps:
 * Clone the project
 * Create an npm link to your forked project
   * Within the cloned directory, run `npm link`
-  * Within the Node-RED directory, run `n
+  * Within the Node-RED directory, run `npm link node-red-contrib
