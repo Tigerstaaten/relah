@@ -30,4 +30,6 @@ If you want to contribute to the repository, follow these steps:
 * Create an npm link to your forked project
   * Within the cloned directory, run `npm link`
   * Within the Node-RED directory, run `npm link node-red-contrib-watson-machine-learning`
-* Run Node-RE
+* Run Node-RED
+
+Now you should have the
