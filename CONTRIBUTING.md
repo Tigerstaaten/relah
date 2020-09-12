@@ -32,4 +32,4 @@ If you want to contribute to the repository, follow these steps:
   * Within the Node-RED directory, run `npm link node-red-contrib-watson-machine-learning`
 * Run Node-RED
 
-Now you should have the media nodes installed in your local palett
+Now you should have the media nodes installed in your local palette, allowing you to 
