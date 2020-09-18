@@ -36,4 +36,4 @@ Now you should have the media nodes installed in your local palette, allowing yo
 
 ### Modify or Create new nodes
 
-If you want to add a node, create a folder using the sam
+If you want to add a node, create a folder using the same naming conve
