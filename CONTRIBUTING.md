@@ -34,4 +34,6 @@ If you want to contribute to the repository, follow these steps:
 
 Now you should have the media nodes installed in your local palette, allowing you to work on your project locally.
 
-### Modify or Create new nod
+### Modify or Create new nodes
+
+If you want to add 
