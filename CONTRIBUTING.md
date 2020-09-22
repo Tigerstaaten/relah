@@ -38,4 +38,4 @@ Now you should have the media nodes installed in your local palette, allowing yo
 
 If you want to add a node, create a folder using the same naming convention.
 
-Please refer to the [Node-RED](http://nodered.org/docs/
+Please refer to the [Node-RED](http://nodered.org/docs/creating-nod
