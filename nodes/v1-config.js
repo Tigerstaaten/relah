@@ -15,4 +15,5 @@
  **/
  module.exports = function(RED) {
 
-   function Node(conf
+   function Node(config) {
+     var node = 
