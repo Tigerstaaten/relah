@@ -15,3 +15,4 @@
  **/
  module.exports = function(RED) {
 
+   function Node(conf
