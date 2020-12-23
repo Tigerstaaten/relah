@@ -16,4 +16,5 @@
  module.exports = function(RED) {
 
    function Node(config) {
-     var node = 
+     var node = this;
+     RED.n
