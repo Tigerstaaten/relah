@@ -17,4 +17,6 @@
 
    function Node(config) {
      var node = this;
-     RED.nodes.createNode(this, c
+     RED.nodes.createNode(this, config);
+
+     this.host
