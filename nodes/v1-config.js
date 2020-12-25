@@ -20,4 +20,6 @@
      RED.nodes.createNode(this, config);
 
      this.host = config.host;
-     this.instanceid = config
+     this.instanceid = config.instanceid;
+
+     v
