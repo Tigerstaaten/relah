@@ -22,4 +22,6 @@
      this.host = config.host;
      this.instanceid = config.instanceid;
 
-     var credentials = this.cred
+     var credentials = this.credentials;
+
+     if ((cred
