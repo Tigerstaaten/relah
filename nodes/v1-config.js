@@ -19,4 +19,5 @@
      var node = this;
      RED.nodes.createNode(this, config);
 
-     this.host
+     this.host = config.host;
+     this.
