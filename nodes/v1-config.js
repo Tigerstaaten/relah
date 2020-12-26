@@ -24,4 +24,5 @@
 
      var credentials = this.credentials;
 
-     if ((credentials) && (credentials.hasOwnProperty
+     if ((credentials) && (credentials.hasOwnProperty("apikey"))) {
+   
