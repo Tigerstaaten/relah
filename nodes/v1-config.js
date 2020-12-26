@@ -24,4 +24,4 @@
 
      var credentials = this.credentials;
 
-     if ((credentials) && (credent
+     if ((credentials) && (credentials.hasOwnProperty
