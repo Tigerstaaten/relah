@@ -24,4 +24,4 @@
 
      var credentials = this.credentials;
 
-     if ((cred
+     if ((credentials) && (credent
