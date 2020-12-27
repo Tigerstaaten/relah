@@ -29,4 +29,4 @@
      }
    }
 
-   RED.nodes.registerTy
+   RED.nodes.registerType('wml-config', N
