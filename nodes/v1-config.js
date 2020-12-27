@@ -25,4 +25,4 @@
      var credentials = this.credentials;
 
      if ((credentials) && (credentials.hasOwnProperty("apikey"))) {
-   
+       this.apikey = credential
