@@ -29,4 +29,4 @@
      }
    }
 
-   R
+   RED.nodes.registerTy
