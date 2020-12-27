@@ -29,4 +29,5 @@
      }
    }
 
-   RED.nodes.registerType('wml-config', N
+   RED.nodes.registerType('wml-config', Node, {
+     credent
