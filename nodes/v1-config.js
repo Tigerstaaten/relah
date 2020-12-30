@@ -31,4 +31,7 @@
 
    RED.nodes.registerType('wml-config', Node, {
      credentials: {
-       apikey: {type:"api
+       apikey: {type:"apikey"}
+     }
+   });
+ };
