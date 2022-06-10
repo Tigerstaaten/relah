@@ -356,4 +356,7 @@
   // Register the handlers for the fields
   wml01.handlersUI = function () {
     $('#node-input-wml-mode').change(function() {
-      wml01.processSelectedMethod($('#node-input-wml-mode
+      wml01.processSelectedMethod($('#node-input-wml-mode').val());
+    });
+
+    $('#n
