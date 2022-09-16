@@ -426,4 +426,5 @@
     if (wml01.deployments && wml01.models) {
       wml01.deployments.forEach((d) => {
         if (d.model) {
-          let pos = wml01.mode
+          let pos = wml01.modelIndex(d.model);
+   
