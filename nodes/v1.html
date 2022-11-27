@@ -444,4 +444,5 @@
     var cn = $('#node-input-connection').val();
     var connection = {cn: cn};
 
-    $.getJSON('wml/deployments/'
+    $.getJSON('wml/deployments/', connection)
+      .d
