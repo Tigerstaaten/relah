@@ -486,4 +486,5 @@
       let pos = wml01.modelIndex(model);
       if (pos >= 0 && wml01.models[pos]['deployments']) {
         // Flush out the list first
-        wml01.models[pos]['deployments'].f
+        wml01.models[pos]['deployments'].forEach((d) => {
+  
