@@ -77,3 +77,17 @@ module.exports = function(RED) {
           message = 'Input_Data or Values and Optional fields are required to run a prediction';
         } else if (Array.isArray(msg.payload)) {
           if (0 === msg.payload.length) {
+            message = 'zero length array is not valid input data for a prediction';
+          } else if (Array.isArray(msg.payload[0])) {
+            // allow values to be provided as a straight array, of arrays
+            params.values = msg.payload;
+          } else {
+            // wrap the single array values in another array
+            params.values = [msg.payload];
+          }
+
+        } else if ('object' !== typeof msg.payload) {
+          message = 'Input_Data needs to be provided either as an array or as an object'
+        } else if (msg.payload.input_data) {
+          params.input_data = msg.payload.input_data;
+        } else {
