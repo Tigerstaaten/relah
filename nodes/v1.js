@@ -55,3 +55,25 @@ module.exports = function(RED) {
       case 'deleteModel':
       case 'deleteModelV4':
       case 'listModelDeployments':
+        if (!config.model) {
+          message = 'No Model Specified for Model related Method';
+        } else {
+          params['model'] = config.model;
+        }
+        break;
+    }
+
+    if (message){
+      return Promise.reject(message);
+    }
+    return Promise.resolve();
+  }
+
+  function checkPayload(msg, m, params) {
+    var message = '';
+    switch (m) {
+      case 'runPrediction':
+        if (! msg.payload) {
+          message = 'Input_Data or Values and Optional fields are required to run a prediction';
+        } else if (Array.isArray(msg.payload)) {
+          if (0 === msg.payload.length) {
