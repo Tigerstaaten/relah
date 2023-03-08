@@ -28,3 +28,30 @@ module.exports = function(RED) {
 
     if (!m || '' === m) {
       message = 'Required mode has not been specified';
+    }
+
+    switch (m) {
+      case 'getDeploymentDetailsV4':
+      case 'deleteDeploymentV4':
+      case 'runPrediction':
+        if (!config.deployment) {
+          message = 'No Deployment Specified for Deployment related Method';
+        } else {
+          params['deployment'] = config.deployment;
+        }
+        break;
+      case 'getDeploymentDetails':
+      case 'deleteDeployment':
+        if (!config.deployment) {
+          message = 'No Deployment Specified for Deployment related Method';
+        } else {
+          params['deployment'] = config.deployment;
+        }
+         // deliberate no break
+      case 'getModelDetails':
+      case 'getModelDetailsV4':
+      case 'listModelMetrics':
+      case 'listLearningIterations':
+      case 'deleteModel':
+      case 'deleteModelV4':
+      case 'listModelDeployments':
