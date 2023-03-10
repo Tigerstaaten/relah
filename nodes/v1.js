@@ -91,3 +91,25 @@ module.exports = function(RED) {
         } else if (msg.payload.input_data) {
           params.input_data = msg.payload.input_data;
         } else {
+          if (msg.payload.values) {
+            params.values = msg.payload.values;
+          } else {
+            message = 'Can not run a prediction without values.'
+          }
+          if (msg.payload.fields) {
+            params.fields = msg.payload.fields;
+          }
+        }
+        break;
+    }
+
+    if (message){
+      return Promise.reject(message);
+    }
+    return Promise.resolve();
+  }
+
+  function checkConnection(connectionNode) {
+    return p = new Promise(function resolver(resolve, reject) {
+      var errorMsg = '';
+      //var connString = settings.dbConnectionString();
