@@ -132,3 +132,22 @@ module.exports = function(RED) {
   }
 
   function getToken(connectionNode, token) {
+    return new Promise(function resolver(resolve, reject) {
+      var token = null;
+      //let uriAddress = connectionNode.host + '/v3/identity/token';
+      let uriAddress = "https://iam.bluemix.net/oidc/token";
+      let IBM_Cloud_IAM_uid = "bx";
+      let IBM_Cloud_IAM_pwd = "bx";
+
+      request({
+        uri: uriAddress,
+        method: 'POST',
+        auth: {
+          user: IBM_Cloud_IAM_uid,
+          pass: IBM_Cloud_IAM_pwd
+        },
+        headers : { "Content-Type"  : "application/x-www-form-urlencoded" },
+        body    : "apikey=" + connectionNode.apikey + "&grant_type=urn:ibm:params:oauth:grant-type:apikey"
+      }, (error, response, body) => {
+        if (!error && response.statusCode == 200) {
+          var b = JSON.parse(body);
