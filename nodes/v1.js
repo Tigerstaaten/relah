@@ -113,3 +113,22 @@ module.exports = function(RED) {
     return p = new Promise(function resolver(resolve, reject) {
       var errorMsg = '';
       //var connString = settings.dbConnectionString();
+
+      if (!connectionNode) {
+        errorMsg = 'No Configuration Found';
+      } else if (!connectionNode.host) {
+        errorMsg = 'No Host set in configuration';
+      } else if (!connectionNode.apikey) {
+        errorMsg = 'No API Key set in configuration';
+      } else if (!connectionNode.instanceid) {
+        errorMsg = 'No Access Key set in configuration';
+      }
+
+      if (errorMsg) {
+        return reject(errorMsg);
+      }
+      return resolve();
+    });
+  }
+
+  function getToken(connectionNode, token) {
