@@ -195,3 +195,25 @@ module.exports = function(RED) {
         }
       });
     });
+  }
+
+  function executeDeleteRequest(uriAddress, t) {
+    return executeDeleteRequestV4Style(uriAddress, t, null);
+  }
+
+  function executeDeleteRequestV4Style(uriAddress, t, instanceid) {
+    return new Promise(function resolver(resolve, reject){
+      let reqObject = {
+        uri: uriAddress,
+        method: 'DELETE',
+        auth: {
+          'bearer': t
+        }
+      };
+
+      if (instanceid) {
+        reqObject.headers = {'ML-Instance-ID' : instanceid};
+      }
+
+      request(reqObject, (error, response, body) => {
+        if (!error && (response.statusCode == 200 || response.statusCode == 204)) {
