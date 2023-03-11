@@ -171,3 +171,27 @@ module.exports = function(RED) {
   }
 
   function executeRequestV4Style(uriAddress, t, instanceid) {
+    return new Promise(function resolver(resolve, reject) {
+      let reqObject = {
+        uri: uriAddress,
+        method: 'GET',
+        auth: {
+          'bearer': t
+        }
+      };
+
+      if (instanceid) {
+        reqObject.headers = {'ML-Instance-ID' : instanceid};
+      }
+
+      request(reqObject, (error, response, body) => {
+        if (!error && response.statusCode == 200) {
+          data = JSON.parse(body);
+          resolve(data);
+        } else if (error) {
+          reject(error);
+        } else {
+          reject('Error performing request ' + response.statusCode);
+        }
+      });
+    });
