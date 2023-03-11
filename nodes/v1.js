@@ -151,3 +151,23 @@ module.exports = function(RED) {
       }, (error, response, body) => {
         if (!error && response.statusCode == 200) {
           var b = JSON.parse(body);
+          if (b.access_token) {
+            //token = 'Bearer ' + b.token;
+            token = b.access_token;
+          }
+          resolve(token);
+        } else if (error) {
+          reject(error);
+        } else {
+          debug('Access Token Error:', error);
+          reject('Access Token Error ' + response.statusCode);
+        }
+      });
+    });
+  }
+
+  function executeRequest(uriAddress, t) {
+    return executeRequestV4Style(uriAddress, t, null);
+  }
+
+  function executeRequestV4Style(uriAddress, t, instanceid) {
