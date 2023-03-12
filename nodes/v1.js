@@ -217,3 +217,25 @@ module.exports = function(RED) {
 
       request(reqObject, (error, response, body) => {
         if (!error && (response.statusCode == 200 || response.statusCode == 204)) {
+          resolve({'status':'ok'});
+        } else if (error) {
+          reject(error);
+        } else {
+          reject('Error performing request ' + response.statusCode);
+        }
+      });
+    });
+  }
+
+  function executePostRequest(uriAddress, t, p) {
+    return executePostRequestV4Style(uriAddress, t, p, null);
+  }
+
+
+  function executePostRequestV4Style(uriAddress, t, p, instanceid) {
+    return new Promise(function resolver(resolve, reject) {
+
+      let reqObject = {
+        headers: {
+          'content-type' : 'application/json',
+          'Accept': 'application/json'
