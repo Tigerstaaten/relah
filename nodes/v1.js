@@ -239,3 +239,35 @@ module.exports = function(RED) {
         headers: {
           'content-type' : 'application/json',
           'Accept': 'application/json'
+        },
+        uri: uriAddress,
+        method: 'POST',
+        auth: {
+          'bearer': t
+        },
+        body: JSON.stringify(p)
+      };
+
+      if (instanceid) {
+        reqObject.headers = {'ML-Instance-ID' : instanceid};
+      }
+
+      request(reqObject, (error, response, body) => {
+        if (!error && response.statusCode == 200) {
+          data = JSON.parse(body);
+          resolve(data);
+        } else if (error) {
+          reject(error);
+        } else {
+          try {
+            let errordata = JSON.parse(body);
+            //console.log(errordata);
+            if (errordata.errors &&
+                   Array.isArray(errordata.errors) &&
+                   errordata.errors.length &&
+                   errordata.errors[0].message) {
+              reject('Error ' + response.statusCode + ' ' + errordata.errors[0].message);
+            } else {
+              reject('Error performing request ' + response.statusCode);
+            }
+          } catch (e) {
