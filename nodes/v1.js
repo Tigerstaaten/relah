@@ -271,3 +271,26 @@ module.exports = function(RED) {
               reject('Error performing request ' + response.statusCode);
             }
           } catch (e) {
+            reject(body);
+          }
+
+        }
+      });
+    });
+  }
+
+  function executeInstanceDetails(cn, t, params) {
+    var uriAddress = cn.host + '/v3/wml_instances/' + cn.instanceid;
+    return executeRequest(uriAddress, t);
+  }
+
+  function checkForModels(data) {
+    if (data && data.resources &&
+          Array.isArray(data.resources) &&
+          (0 < data.resources.length)) {
+      return true;
+    }
+    return false;
+  }
+
+  function fetchModels(cn, myToken) {
