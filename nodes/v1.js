@@ -344,3 +344,22 @@ module.exports = function(RED) {
       })
     });
   }
+
+  function executeListModels(cn, t, params) {
+    var uriAddress = cn.host + '/v3/wml_instances/' + cn.instanceid
+                              + '/published_models';
+    return executeRequest(uriAddress, t);
+  }
+
+  function executeListModelsV4(cn, t, params) {
+    var uriAddress = cn.host + '/v4/models';
+    return executeRequestV4Style(uriAddress, t, cn.instanceid);
+  }
+
+  function executeGetModelDetails(cn, t, params) {
+    var uriAddress = cn.host + '/v3/wml_instances/' + cn.instanceid
+                              + '/published_models/' + params.model;
+    return executeRequest(uriAddress, t);
+  }
+
+  function executeGetModelDetailsV4(cn, t, params) {
