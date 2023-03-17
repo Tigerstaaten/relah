@@ -320,3 +320,27 @@ module.exports = function(RED) {
           (0 < data.resources.length)) {
       return true;
     }
+    return false;
+  }
+
+
+  function fetchDeployments(cn, myToken) {
+    return new Promise(function resolver(resolve, reject) {
+      // Try V3 first
+      executeMethod('listAllDeployments', cn, myToken, {})
+      .then((data) => {
+        if (checkForDeployments(data)) {
+          resolve(data);
+        } else {
+          // If no deployments are found then try V4
+          return executeMethod('listAllDeploymentsV4', cn, myToken, {});
+        }
+      })
+      .then((data) => {
+        resolve(data);
+      })
+      .catch((err) => {
+        reject(err);
+      })
+    });
+  }
