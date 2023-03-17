@@ -294,3 +294,29 @@ module.exports = function(RED) {
   }
 
   function fetchModels(cn, myToken) {
+    return new Promise(function resolver(resolve, reject) {
+      // Try V3 first
+      executeMethod('listModels', cn, myToken, {})
+      .then((data) => {
+        if (checkForModels(data)) {
+          resolve(data);
+        } else {
+          // If no models are found then try V4
+          return executeMethod('listModelsV4', cn, myToken, {})
+        }
+      })
+      .then((data) => {
+        resolve(data);
+      })
+      .catch((err) => {
+        reject(err);
+      })
+    });
+  }
+
+  function checkForDeployments(data) {
+    if (data && data.resources &&
+          Array.isArray(data.resources) &&
+          (0 < data.resources.length)) {
+      return true;
+    }
