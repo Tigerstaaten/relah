@@ -405,3 +405,24 @@ module.exports = function(RED) {
                               + '/deployments/' + params.deployment;
     return executeRequest(uriAddress, t);
   }
+
+  function executeGetDeploymentDetailsV4(cn, t, params) {
+    var uriAddress = cn.host + '/v4/deployments/' + params.deployment;
+    return executeRequestV4Style(uriAddress, t, cn.instanceid);
+  }
+
+  function executeDeleteDeployment(cn, t, params) {
+    var uriAddress = cn.host + '/v3/wml_instances/' + cn.instanceid
+                              + '/published_models/' + params.model
+                              + '/deployments/' + params.deployment;
+    return executeDeleteRequest(uriAddress, t);
+  }
+
+  function executeDeleteDeploymentV4(cn, t, params) {
+    var uriAddress = cn.host + '/v4/deployments/' + params.deployment;
+    return executeDeleteRequestV4Style(uriAddress, t, cn.instanceid);
+  }
+
+  function executeDeleteModel(cn, t, params) {
+    var uriAddress = cn.host + '/v3/wml_instances/' + cn.instanceid
+                              + '/published_models/' + params.model;
