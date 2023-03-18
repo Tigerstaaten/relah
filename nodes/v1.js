@@ -363,3 +363,23 @@ module.exports = function(RED) {
   }
 
   function executeGetModelDetailsV4(cn, t, params) {
+    var uriAddress = cn.host + '/v4/models/' + params.model;
+    return executeRequestV4Style(uriAddress, t, cn.instanceid);
+  }
+
+  function executeListModelMetrics(cn, t, params) {
+    var uriAddress = cn.host + '/v3/wml_instances/' + cn.instanceid
+                              + '/published_models/' + params.model
+                              + '/evaluation_metrics';
+    return executeRequest(uriAddress, t);
+  }
+
+  function executeListLearningIterations(cn, t, params) {
+    var uriAddress = cn.host + '/v3/wml_instances/' + cn.instanceid
+                              + '/published_models/' + params.model
+                              + '/learning_iterations';
+    return executeRequest(uriAddress, t);
+  }
+
+  function executeListAllDeployments(cn, t, params) {
+    var uriAddress = cn.host + '/v3/wml_instances/' + cn.instanceid
