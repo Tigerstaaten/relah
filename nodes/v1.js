@@ -383,3 +383,25 @@ module.exports = function(RED) {
 
   function executeListAllDeployments(cn, t, params) {
     var uriAddress = cn.host + '/v3/wml_instances/' + cn.instanceid
+                              + '/deployments';
+    return executeRequest(uriAddress, t);
+  }
+
+  function executeListAllDeploymentsV4(cn, t, params) {
+    var uriAddress = cn.host + '/v4/deployments';
+    return executeRequestV4Style(uriAddress, t, cn.instanceid);
+  }
+
+  function executeListModelDeployments(cn, t, params) {
+    var uriAddress = cn.host + '/v3/wml_instances/' + cn.instanceid
+                              + '/published_models/' + params.model
+                              + '/deployments';
+    return executeRequest(uriAddress, t);
+  }
+
+  function executeGetDeploymentDetails(cn, t, params) {
+    var uriAddress = cn.host + '/v3/wml_instances/' + cn.instanceid
+                              + '/published_models/' + params.model
+                              + '/deployments/' + params.deployment;
+    return executeRequest(uriAddress, t);
+  }
