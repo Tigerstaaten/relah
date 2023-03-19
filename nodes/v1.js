@@ -426,3 +426,23 @@ module.exports = function(RED) {
   function executeDeleteModel(cn, t, params) {
     var uriAddress = cn.host + '/v3/wml_instances/' + cn.instanceid
                               + '/published_models/' + params.model;
+    return executeDeleteRequest(uriAddress, t);
+  }
+
+  function executeDeleteModelV4(cn, t, params) {
+    var uriAddress = cn.host + '/v4/models/' + params.model;
+    return executeDeleteRequestV4Style(uriAddress, t, cn.instanceid);
+  }
+
+  function executeRunPrediction(cn, t, params) {
+    // A V4 Type Prediction will work for both V3 and V4 deployments
+    let uriAddress = cn.host + '/v4/deployments/'
+                        + params.deployment + '/predictions';
+    let V4Params = {};
+
+    if (params.input_data) {
+      v4Params = {'input_data' : params.input_data};
+    } else {
+      let dParams = {values : params.values};
+      if (params.fields) {
+        dParams.fields = params.fields;
