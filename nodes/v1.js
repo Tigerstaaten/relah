@@ -446,3 +446,27 @@ module.exports = function(RED) {
       let dParams = {values : params.values};
       if (params.fields) {
         dParams.fields = params.fields;
+      }
+      v4Params = {'input_data' : [dParams]};
+    }
+
+
+    return executePostRequestV4Style(uriAddress, t, v4Params, cn.instanceid);
+  }
+
+  function executeUnknownMethod(cn, t, params) {
+    return Promise.reject('Unable to process as unknown mode has been specified');
+  }
+
+  function executeMethod(method, cn, t, params) {
+    var p = null;
+    var f = null;
+    const execute = {
+      'instanceDetails' : executeInstanceDetails,
+      'listModels': executeListModels,
+      'listModelsV4': executeListModelsV4,
+      'getModelDetails' : executeGetModelDetails,
+      'getModelDetailsV4' : executeGetModelDetailsV4,
+      'deleteModel' : executeDeleteModel,
+      'deleteModelV4' : executeDeleteModelV4,
+      'listModelMetrics' : executeListModelMetrics,
