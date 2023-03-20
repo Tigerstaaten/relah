@@ -513,3 +513,24 @@ module.exports = function(RED) {
     }
 
     return Promise.resolve(models);
+  }
+
+  function doSomething() {
+    var p = new Promise(function resolver(resolve, reject) {
+      reject('nothing yet implemented');
+    });
+    return p;
+  }
+
+  function reportError(node, msg, err) {
+    var messageTxt = err;
+    if (err.error) {
+      messageTxt = err.error;
+    } else if (err.description) {
+      messageTxt = err.description;
+    } else if (err.message) {
+      messageTxt = err.message;
+    }
+    node.status({ fill: 'red', shape: 'dot', text: messageTxt });
+
+    msg.result = {};
