@@ -470,3 +470,26 @@ module.exports = function(RED) {
       'deleteModel' : executeDeleteModel,
       'deleteModelV4' : executeDeleteModelV4,
       'listModelMetrics' : executeListModelMetrics,
+      'listLearningIterations' : executeListLearningIterations,
+      'listAllDeployments': executeListAllDeployments,
+      'listAllDeploymentsV4': executeListAllDeploymentsV4,
+      'listModelDeployments' : executeListModelDeployments,
+      'getDeploymentDetails' : executeGetDeploymentDetails,
+      'getDeploymentDetailsV4' : executeGetDeploymentDetailsV4,
+      'deleteDeployment' : executeDeleteDeployment,
+      'deleteDeploymentV4' : executeDeleteDeploymentV4,
+      'runPrediction' : executeRunPrediction
+    }
+
+    f = execute[method] || executeUnknownMethod
+    p = f(cn, t, params);
+    return p;
+  }
+
+  function processResponse(msg, data) {
+    msg.payload = data;
+    return Promise.resolve();
+  }
+
+  function buildResponseArray(data) {
+    let models = [];
