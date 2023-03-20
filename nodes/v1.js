@@ -493,3 +493,23 @@ module.exports = function(RED) {
 
   function buildResponseArray(data) {
     let models = [];
+    let resources = data.resources;
+
+    if (resources) {
+      resources.forEach((e) => {
+        var m = {};
+        if (e.metadata && e.metadata.guid) {
+          m['guid'] = e.metadata.guid;
+          if (e.entity && e.entity.name) {
+            m['name'] = e.entity.name;
+            if (e.entity.published_model && e.entity.published_model.guid) {
+              m['model'] = e.entity.published_model.guid;
+            }
+
+            models.push(m);
+          }
+        }
+      });
+    }
+
+    return Promise.resolve(models);
