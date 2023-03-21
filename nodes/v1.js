@@ -550,3 +550,24 @@ module.exports = function(RED) {
       .then( () => {
         return getToken(cn);
       })
+      .then( (t) => {
+        myToken = t;
+        return fetchModels(cn, myToken)
+      })
+      .then( (data) => {
+        return buildResponseArray(data);
+      })
+      .then( (models) => {
+        res.json({models:models});
+      })
+      .catch(function(err) {
+        debug('/wml/models Error:', err);
+        res.json({error:'Not able to fetch models'});
+      });
+  });
+
+  // API used by widget to fetch available deployments for a model
+  RED.httpAdmin.get('/wml/deployments', function (req, res) {
+    var connection = req.query.cn;
+    //var model = req.query.model;
+    var cn = RED.nodes.getNode(connection);
