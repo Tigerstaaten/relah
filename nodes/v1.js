@@ -534,3 +534,19 @@ module.exports = function(RED) {
     node.status({ fill: 'red', shape: 'dot', text: messageTxt });
 
     msg.result = {};
+    msg.result['error'] = err;
+    node.error(messageTxt, msg);
+  }
+
+  // API used by widget to fetch available models
+  RED.httpAdmin.get('/wml/models', function (req, res) {
+    let connection = req.query.cn;
+    let cn = RED.nodes.getNode(connection);
+    let myToken = null;
+
+    debug('Fetching Models');
+
+    checkConnection(cn)
+      .then( () => {
+        return getToken(cn);
+      })
