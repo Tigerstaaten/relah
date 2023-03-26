@@ -571,3 +571,19 @@ module.exports = function(RED) {
     var connection = req.query.cn;
     //var model = req.query.model;
     var cn = RED.nodes.getNode(connection);
+    var myToken = null;
+    //var params = {};
+
+    //params.model = model;
+
+    checkConnection(cn)
+      .then( () => {
+        return getToken(cn);
+      })
+      .then( (t) => {
+        myToken = t;
+        return fetchDeployments(cn, myToken);
+        // return executeMethod('listModelDeployments', cn, myToken, params);
+      })
+      .then( (data) => {
+        return buildResponseArray(data);
