@@ -587,3 +587,22 @@ module.exports = function(RED) {
       })
       .then( (data) => {
         return buildResponseArray(data);
+      })
+      .then( (deployments) => {
+        res.json({deployments:deployments});
+      })
+      .catch(function(err) {
+        debug('/wml/deployments Error:', err);
+        res.json({error:'Not able to fetch deployments'});
+      });
+  });
+
+
+  function Node(config) {
+    var node = this;
+    RED.nodes.createNode(this, config);
+
+    node.connectionNode = RED.nodes.getNode(config.connection);
+
+    this.on('input', function(msg) {
+      node.status({ fill: 'blue', shape: 'dot', text: 'initialising' });
