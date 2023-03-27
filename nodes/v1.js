@@ -606,3 +606,23 @@ module.exports = function(RED) {
 
     this.on('input', function(msg) {
       node.status({ fill: 'blue', shape: 'dot', text: 'initialising' });
+
+      var connection = null;
+      var token = null;
+      var method = config['wml-mode'];
+      var params = {};
+
+      start(msg, config)
+        .then( () => {
+          return checkForParameters(msg, config, method, params);
+        })
+        .then( () => {
+          return checkPayload(msg, method, params);
+        })
+        .then( () => {
+          return checkConnection(node.connectionNode);
+        })
+        .then( () => {
+          node.status({ fill: 'blue', shape: 'dot', text: 'requesting token' });
+          return getToken(node.connectionNode);
+        })
