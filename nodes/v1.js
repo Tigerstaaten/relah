@@ -626,3 +626,23 @@ module.exports = function(RED) {
           node.status({ fill: 'blue', shape: 'dot', text: 'requesting token' });
           return getToken(node.connectionNode);
         })
+        .then( (t) => {
+          token = t;
+          node.status({ fill: 'blue', shape: 'dot', text: 'executing' });
+          return executeMethod(method, node.connectionNode, token, params);
+        })
+        .then( (data) => {
+          node.status({ fill: 'blue', shape: 'dot', text: 'processing response' });
+          return processResponse(msg, data);
+        })
+        .then(function() {
+          node.status({});
+          node.send(msg);
+        })
+        .catch(function(err) {
+          reportError(node,msg,err);
+          node.send(msg);
+        });
+
+    });
+  }
