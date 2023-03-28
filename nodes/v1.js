@@ -646,3 +646,12 @@ module.exports = function(RED) {
 
     });
   }
+
+  RED.nodes.registerType('wml', Node, {
+    credentials: {
+      token: {
+        type: 'text'
+      }
+    }
+  });
+};
