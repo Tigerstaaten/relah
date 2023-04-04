@@ -4,4 +4,6 @@
   "description": "Interact with Watson Machine learning",
   "dependencies": {
     "debug": "^4.1.1",
-    "
+    "request": "~2.88.0"
+  },
+  "
