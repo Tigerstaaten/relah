@@ -3,4 +3,5 @@
   "version": "0.1.1",
   "description": "Interact with Watson Machine learning",
   "dependencies": {
-    "debug": 
+    "debug": "^4.1.1",
+    "
