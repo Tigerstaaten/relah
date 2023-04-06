@@ -7,4 +7,5 @@
     "request": "~2.88.0"
   },
   "repository": {
-    "type"
+    "type": "git",
+    "url":
