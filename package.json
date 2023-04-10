@@ -8,4 +8,5 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ibm-early-programs/node-red-contrib-watson-ma
+    "url": "https://github.com/ibm-early-programs/node-red-contrib-watson-machine-learning"
+  
