@@ -24,4 +24,5 @@
   ],
   "node-red": {
     "nodes": {
-      "wml": "nodes/v1.js"
+      "wml": "nodes/v1.js",
+      "wml-config": "nodes
